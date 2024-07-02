@@ -18,6 +18,9 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Avoid 'uninitialized constant Sidekiq::Component' from RailsSemanticLogger
+require "sidekiq/component"
+
 module SemanticSidekiq
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
